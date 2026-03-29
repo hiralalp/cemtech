@@ -34,7 +34,7 @@
             <div class="row gx-0 align-items-center" style="height: 45px; background:#E81C2E;" >
                 <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                     <div class="d-flex flex-wrap">
-                        <a href="https://maps.app.goo.gl/5ZJTmQMnDTZWifG1A" class="text-light me-4"><i class="fas fa-map-marker-alt me-2" style="color: #EAE7DD; margin-right: 10px;"></i>Find A Location</a>
+                        <a href="https://www.google.com/maps/search/Ram+Mandir+Rd,+Kumbharwada,+Mumbai,+Maharashtra+400004" class="text-light me-4"><i class="fas fa-map-marker-alt me-2" style="color: #EAE7DD; margin-right: 10px;"></i>Find A Location</a>
                         <a href="tel:+917409602873" class="text-light me-4"><i class="fas fa-phone-alt me-2" style="color: #EAE7DD; margin-right: 8px; margin-left: 10px;"></i>+91 7409602873</a>
                         <a href="mailto:cemtechmetal@gmail.com" class="text-light me-0"><i class="fas fa-envelope me-2" style="color: #EAE7DD; margin-right: 8px; margin-left: 20px;"></i>cemtechmetal@gmail.com</a>
                     </div>
@@ -183,41 +183,53 @@
     <div class="form-wrapper">
         <div class="contact-form custom-form-height">
             <div id="success"></div>
-           <form action="https://api.web3forms.com/submit" method="POST">
-    <!-- Replace with your actual Web3Forms Access Key -->
-     <input type="hidden" name="access_key" value="6d084048-8563-4e87-93c3-f871fc7d2a12">
+           <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
 
     <div class="control-group mb-3">
-        <input type="text" name="company" class="form-control" placeholder="Company Name" required>
+        <input type="text" id="company" class="form-control" placeholder="Company Name" required>
         <p class="help-block text-danger"></p>
     </div>
     <div class="control-group mb-3">
-        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+        <input type="text" id="name" class="form-control" placeholder="Your Name" required>
         <p class="help-block text-danger"></p>
     </div>
     <div class="control-group mb-3">
-        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+        <input type="email" id="email" class="form-control" placeholder="Your Email" required>
         <p class="help-block text-danger"></p>
     </div>
     <div class="control-group mb-3">
-        <input type="tel" name="phone" class="form-control" placeholder="Telephone" required>
+        <input type="tel" id="phone" class="form-control" placeholder="Telephone" required>
         <p class="help-block text-danger"></p>
     </div>
     <div class="control-group mb-4">
-        <textarea name="message" class="form-control" placeholder="Message" rows="10" required></textarea>
+        <textarea id="message" class="form-control" placeholder="Message" rows="10" required></textarea>
         <p class="help-block text-danger"></p>
     </div>
-
-    <!-- Optional: Redirect after submission -->
-    <!-- <input type="hidden" name="redirect" value="https://cemtechmetal.com//thank-you.html"> -->
-
-    <!-- Optional: Anti-spam honeypot -->
-    <!-- <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off"> -->
 
     <div>
         <button class="btn btn-custom" type="submit">Send Message</button>
     </div>
 </form>
+
+<script>
+function sendToWhatsApp(e) {
+    e.preventDefault();
+    var company = document.getElementById('company').value;
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var message = document.getElementById('message').value;
+
+    var text = "New Enquiry from Website%0A%0A" +
+        "Company: " + encodeURIComponent(company) + "%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Email: " + encodeURIComponent(email) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Message: " + encodeURIComponent(message);
+
+    window.open("https://wa.me/917409602873?text=" + text, "_blank");
+}
+</script>
 
         </div>
     </div>
@@ -234,7 +246,7 @@
           <div class="col-md-6">
     <div class="map-responsive">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9050573064925!2d72.82859947516285!3d19.071302852889308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cedc8abac065%3A0x93d40804b7802e5b!2s3rd%20Kumbharwada%2C%20Dr%20M.%20G.%20Mahimtura%20Marg%2C%20Mumbai%2C%20Maharashtra%20400004!5e0!3m2!1sen!2sin!4v1720175488575!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.3708843848112!2d72.82418917454275!3d18.959220982221492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce160bf9ae7d%3A0x7ea08007b6705355!2sRam%20Mandir%20Rd%2C%20Kumbharwada%2C%20Mumbai%2C%20Maharashtra%20400004!5e0!3m2!1sen!2sin!4v1774773368881!5m2!1sen!2sin"
             width="100%" height="800" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
@@ -261,13 +273,6 @@
                             <p><i class="fa fa-phone-alt"></i>+91 7409602873</p>
                               <p><i class="fa fa-phone-alt"></i>+91 9833392466</p>
                                <p><i class="fa fa-envelope"></i> cemtechmetal@gmail.com</p>
-                            <p><i class="fa fa-envelope"></i>cemtechmetal@gmail.com</p>
-                            <div class="footer-social">
-                                <a class="btn" href="https://x.com/shreearbudaste?s=11"><i class="fa-brands fa-x-twitter"></i></a>
-                                <a class="btn" href="https://www.facebook.com/profile.php?id=61577113183166"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn" href="https://www.instagram.com/cemtechmetal?igsh=ejh5c2tyZHNobWdl&utm_source=qr"><i class="fab fa-instagram"></i></a>
-                                <a class="btn" href="https://www.linkedin.com/in/shree-arbuda-steel-1b14b1349?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -299,7 +304,7 @@
             </div> 
             <div style="border-bottom: 1px solid #E81C2E;"></div>
             <div class="container copyright">
-                <p>&copy; <a style="margin-right: 8px;">2025 Shree Arbuds Steel</a> All Right Reserved.</p>
+                <p>&copy; <a style="margin-right: 8px;">2026 Cemtech Metal Industries</a> All Right Reserved.</p>
             </div>
         </div>
         <!-- Footer End -->
